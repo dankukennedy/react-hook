@@ -3,9 +3,10 @@ import { useFormContext } from 'react-hook-form';
 import { Schema } from '../types/schema';
 import { RHFAutocomplete } from '../../components/RHFAutocomplete';
 import { useEffect } from 'react';
-import { useGenders, useLanguage, useStates } from '../services/queries';
+import { useGenders, useLanguage, useSkills, useStates } from '../services/queries';
 import { RHFAToggleButtonGroup } from '../../components/RHFAToggleButtonGroup';
 import { RHFARadioGroup } from '../../components/RHFARadioGroup';
+import { RHFACheckbox } from '../../components/RHFACheckbox';
 
 
 export  function Users(){  
@@ -13,6 +14,7 @@ export  function Users(){
   const statesQuery = useStates()
   const languagesQuery = useLanguage()
   const genderQuery = useGenders()
+  const skillsQuery = useSkills()
 
     const {
         register,
@@ -40,6 +42,8 @@ export  function Users(){
             />
          <RHFAToggleButtonGroup<Schema> name="languagesSpoken" options={languagesQuery.data }/>
          <RHFARadioGroup<Schema> name="gender" options={ genderQuery.data}  label='Gender'/>
+        <RHFACheckbox<Schema> name="skills" options={skillsQuery.data} label='Skills'/>
+        
         </Stack>
   );
 }
