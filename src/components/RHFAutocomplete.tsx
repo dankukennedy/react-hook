@@ -12,11 +12,7 @@ type Props <T extends FieldValues> = {
     label: string;
 }
 
-export function RHFAutocomplete<T extends FieldValues>({
-    name,
-    options,
-    label
-}:Props<T>) {
+export function RHFAutocomplete<T extends FieldValues>({name, options, label }: Props <T>) {
   const {control} = useFormContext();
 
     return (
