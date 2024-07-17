@@ -7,6 +7,7 @@ import { useGenders, useLanguage, useSkills, useStates } from '../services/queri
 import { RHFAToggleButtonGroup } from '../../components/RHFAToggleButtonGroup';
 import { RHFARadioGroup } from '../../components/RHFARadioGroup';
 import { RHFACheckbox } from '../../components/RHFACheckbox';
+import { RHFADateTimePicker } from '../../components/RHFADateTimePicker';
 
 
 export  function Users(){  
@@ -42,8 +43,8 @@ export  function Users(){
             />
          <RHFAToggleButtonGroup<Schema> name="languagesSpoken" options={languagesQuery.data }/>
          <RHFARadioGroup<Schema> name="gender" options={ genderQuery.data}  label='Gender'/>
-        <RHFACheckbox<Schema> name="skills" options={skillsQuery.data} label='Skills'/>
-        
+         <RHFACheckbox<Schema> name="skills" options={skillsQuery.data} label='Skills'/>
+         <RHFADateTimePicker<Schema>  name="registrationDateAndTime" label="Registration Date & Time" />
         </Stack>
   );
 }
