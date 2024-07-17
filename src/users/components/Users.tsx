@@ -1,4 +1,4 @@
-import { Stack, TextField } from '@mui/material';
+import { Stack, TextField, Typography } from '@mui/material';
 import { useFormContext } from 'react-hook-form';
 import { Schema } from '../types/schema';
 import { RHFAutocomplete } from '../../components/RHFAutocomplete';
@@ -8,6 +8,7 @@ import { RHFAToggleButtonGroup } from '../../components/RHFAToggleButtonGroup';
 import { RHFARadioGroup } from '../../components/RHFARadioGroup';
 import { RHFACheckbox } from '../../components/RHFACheckbox';
 import { RHFADateTimePicker } from '../../components/RHFADateTimePicker';
+import { RHFADateRangePicker } from '../../components/RHFADateRangePicker';
 
 
 export  function Users(){  
@@ -41,10 +42,14 @@ export  function Users(){
          />
          <RHFAutocomplete<Schema> name="states" label= 'States' options={statesQuery.data}
             />
-         <RHFAToggleButtonGroup<Schema> name="languagesSpoken" options={languagesQuery.data }/>
-         <RHFARadioGroup<Schema> name="gender" options={ genderQuery.data}  label='Gender'/>
-         <RHFACheckbox<Schema> name="skills" options={skillsQuery.data} label='Skills'/>
-         <RHFADateTimePicker<Schema>  name="registrationDateAndTime" label="Registration Date & Time" />
+          <RHFAToggleButtonGroup<Schema> name="languagesSpoken" options={languagesQuery.data }/>
+          <RHFARadioGroup<Schema> name="gender" options={ genderQuery.data}  label='Gender'/>
+          <RHFACheckbox<Schema> name="skills" options={skillsQuery.data} label='Skills'/>
+          <RHFADateTimePicker<Schema>  name="registrationDateAndTime" label="Registration Date & Time" />
+          <Typography>Employment Period:</Typography>
+          <Typography>Employment Period:</Typography>
+          <RHFADateRangePicker<Schema>  name="formatEmploymentPeriod" />
+        
         </Stack>
   );
 }
