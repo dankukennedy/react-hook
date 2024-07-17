@@ -3,9 +3,15 @@ import { useFormContext } from 'react-hook-form';
 import { Schema } from '../types/schema';
 import { RHFAutocomplete } from '../../components/RHFAutocomplete';
 import { useEffect } from 'react';
+import { useLanguage, useStates } from '../services/queries';
+import { RHFAToggleButtonGroup } from '../../components/RHFAToggleButtonGroup';
 
 
 export  function Users(){  
+  
+  const statesQuery = useStates()
+  const languagesQuery = useLanguage()
+
     const {
         register,
          formState:{errors},
@@ -28,11 +34,9 @@ export  function Users(){
         <TextField   {...register('email')} label="Email" error={!!errors.email} 
         helperText={errors.email?.message}
          />
-         <RHFAutocomplete<Schema> name="states" label= 'States' options={[
-            {id:"1",label:"Califonia"},
-            {id:"2",label:"New York"},
-            ]}
+         <RHFAutocomplete<Schema> name="states" label= 'States' options={statesQuery.data}
             />
+         <RHFAToggleButtonGroup<Schema> name="languagesSpoken" options={languagesQuery.data }/>
         </Stack>
   );
 }
