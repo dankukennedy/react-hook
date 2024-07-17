@@ -5,8 +5,8 @@ import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 
 
 type Props <T extends FieldValues> = {
-    name:Pathh <T>;
-    options?:Optionion[];
+    name:Path <T>;
+    options?:Option[];
 }
 
 export function RHFAToggleButtonGroup<T extends FieldValues>({
