@@ -11,7 +11,7 @@ type Props <T extends FieldValues> = {
     label:string;
 }
 
-export function RHFARadioGroup<T extends FieldValues>({
+export function RHFRadioGroup<T extends FieldValues>({
     name,
     options,
     label,

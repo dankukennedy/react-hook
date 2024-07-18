@@ -1,6 +1,7 @@
 import { Controller, FieldValues, Path, useFormContext } from "react-hook-form";
 import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFnsV3'
 import {DateTimePicker, LocalizationProvider} from '@mui/x-date-pickers'
+import { Slider, Typography } from "@mui/material";
 
 
 
@@ -9,7 +10,7 @@ type Props <T extends FieldValues> = {
     label:string;
 }
 
-export function RHFADateTimePicker<T extends FieldValues>({
+export function RHFSlider<T extends FieldValues>({
     name,
     label
    }:Props<T>){
@@ -20,9 +21,10 @@ export function RHFADateTimePicker<T extends FieldValues>({
     <Controller control ={control}
      name={name} 
      render= {({field})=>( 
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                 <DateTimePicker label={label} {...field} />
-              </LocalizationProvider>
+                <>
+                 <Typography>{label}</Typography>
+                 <Slider {...field} valueLabelDisplay="auto" />
+                </>
             )}
          />
     );

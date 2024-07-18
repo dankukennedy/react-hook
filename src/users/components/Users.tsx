@@ -4,11 +4,14 @@ import { Schema } from '../types/schema';
 import { RHFAutocomplete } from '../../components/RHFAutocomplete';
 import { useEffect } from 'react';
 import { useGenders, useLanguage, useSkills, useStates } from '../services/queries';
-import { RHFAToggleButtonGroup } from '../../components/RHFAToggleButtonGroup';
-import { RHFARadioGroup } from '../../components/RHFARadioGroup';
-import { RHFACheckbox } from '../../components/RHFACheckbox';
-import { RHFADateTimePicker } from '../../components/RHFADateTimePicker';
-import { RHFADateRangePicker } from '../../components/RHFADateRangePicker';
+import { RHFToggleButtonGroup } from '../../components/RHFToggleButtonGroup';
+import { RHFRadioGroup } from '../../components/RHFRadioGroup';
+import { RHFCheckbox } from '../../components/RHFCheckbox';
+import { RHFDateTimePicker } from '../../components/RHFDateTimePicker';
+import { RHFDateRangePicker } from '../../components/RHFDateRangePicker';
+import { RHFSlider } from '../../components/RHFSlider';
+import { RHFSwitch } from '../../components/RHFSwitch';
+import { RHFTextField } from '../../components/RHFTextField';
 
 
 export  function Users(){  
@@ -34,22 +37,19 @@ export  function Users(){
 
       return (     
         <Stack sx={{gap:2}} >
-        <TextField   {...register('name')} label="Name" error={!!errors.name} 
-        helperText={errors.name?.message}
-        />
-        <TextField   {...register('email')} label="Email" error={!!errors.email} 
-        helperText={errors.email?.message}
-         />
-         <RHFAutocomplete<Schema> name="states" label= 'States' options={statesQuery.data}
-            />
-          <RHFAToggleButtonGroup<Schema> name="languagesSpoken" options={languagesQuery.data }/>
-          <RHFARadioGroup<Schema> name="gender" options={ genderQuery.data}  label='Gender'/>
-          <RHFACheckbox<Schema> name="skills" options={skillsQuery.data} label='Skills'/>
-          <RHFADateTimePicker<Schema>  name="registrationDateAndTime" label="Registration Date & Time" />
+        <RHFTextField<Schema> name="name" label="Name" />
+        <RHFTextField<Schema> name="email" label="Email" />
+         <RHFAutocomplete<Schema> name="states" label= 'States' options={statesQuery.data} />
+          <RHFToggleButtonGroup<Schema> name="languagesSpoken" options={languagesQuery.data }/>
+          <RHFRadioGroup<Schema> name="gender" options={ genderQuery.data}  label='Gender'/>
+          <RHFCheckbox<Schema> name="skills" options={skillsQuery.data} label='Skills'/>
+          <RHFDateTimePicker<Schema>  name="registrationDateAndTime" label="Registration Date & Time" />
           <Typography>Employment Period:</Typography>
           <Typography>Employment Period:</Typography>
-          <RHFADateRangePicker<Schema>  name="formatEmploymentPeriod" />
-        
+          <RHFDateRangePicker<Schema>  name="formatEmploymentPeriod" />
+          <RHFSlider<Schema> name="salaryRange"  label='salary Range' />
+           <RHFSwitch<Schema> name="isTeacher" label="Are you the new Teacher" />
+
         </Stack>
   );
 }

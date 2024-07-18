@@ -10,7 +10,7 @@ type Props <T extends FieldValues> = {
 
 }
 
-export function RHFADateRangePicker<T extends FieldValues>({
+export function RHFDateRangePicker<T extends FieldValues>({
     name,
 
    }:Props<T>){

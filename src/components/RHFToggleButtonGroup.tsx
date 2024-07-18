@@ -9,7 +9,7 @@ type Props <T extends FieldValues> = {
     options?:Option[];
 }
 
-export function RHFAToggleButtonGroup<T extends FieldValues>({
+export function RHFToggleButtonGroup<T extends FieldValues>({
     name,
     options
    }:Props<T>){

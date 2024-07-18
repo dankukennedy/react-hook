@@ -14,6 +14,8 @@ export const schema = z.object({
     skills:z.array(z.string()).max(3, {message:'you can only select 3 skills'}),
     registrationDateAndTime:z.date(),
     formatEmploymentPeriod:z.array(z.date()).min(2).max(2),
+    salaryRange:z.array(z.number()).min(2).max(2),
+    isTeacher:z.boolean(),
 
 });
 
@@ -28,4 +30,6 @@ export const defaultValues: Schema = {
     skills:[],
     registrationDateAndTime: new Date(),
     formatEmploymentPeriod: [new Date(),new Date()],
+    salaryRange: [0, 2000],
+    isTeacher: true,
 }

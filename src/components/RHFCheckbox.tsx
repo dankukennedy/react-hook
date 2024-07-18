@@ -11,7 +11,7 @@ type Props <T extends FieldValues> = {
     label:string;
 }
 
-export function RHFACheckbox<T extends FieldValues>({
+export function RHFCheckbox<T extends FieldValues>({
     name,
     options,
     label,
